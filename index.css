@@ -1,0 +1,42 @@
+:root {
+	font-size: 62.5%;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	text-transform: capitalize;
+	position: relative;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	overflow-x: hidden;
+	min-height: 100vh;
+}
+
+.flex {
+	display: flex;
+}
+
+.grid {
+	display: grid;
+}
+
+#wrapper {
+	overflow: auto;
+	min-height: 100vh;
+}
+
+h1 {
+	text-align: center;
+	margin: 2vw;
+}
+
+#container {
+	min-height: 100vh;
+	justify-content: center;
+	align-items: center;
+}
