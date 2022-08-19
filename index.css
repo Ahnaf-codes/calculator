@@ -55,7 +55,7 @@ h1 {
 
 #display {
 	justify-content: flex-end;
-	background-color: #dddddd;
+	background-color: #eeeeee;
 	border: black 3px solid;
 	border-radius: 25px;
 	margin-bottom: 15px;
@@ -70,6 +70,7 @@ h1 {
 }
 
 .btn {
+	background-color: #eeeeee;
 	aspect-ratio: 1;
 	border: black 3px solid;
 	border-radius: 100%;
