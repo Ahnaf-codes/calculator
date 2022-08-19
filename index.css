@@ -5,6 +5,8 @@
 * {
 	padding: 0;
 	margin: 0;
+	font-family: "Oswald", sans-serif;
+	font-weight: 400;
 }
 
 body {
@@ -32,11 +34,36 @@ body {
 
 h1 {
 	text-align: center;
-	margin: 2vw;
+	font-weight: 600;
+	font-size: 4rem;
 }
 
 #container {
 	min-height: 100vh;
 	justify-content: center;
 	align-items: center;
+}
+
+#calculator {
+	background-color: #686868;
+	width: 400px;
+	aspect-ratio: 2 / 3;
+	padding: 15px;
+	border: black 3px solid;
+	border-radius: 10px;
+}
+
+#display {
+	justify-content: flex-end;
+	background-color: #dddddd;
+	border: black 3px solid;
+	border-radius: 10px;
+	margin-bottom: 15px;
+	font-size: 5rem;
+}
+
+#numbers {
+	grid-template-columns: repeat(4, 1fr);
+	gap: 10px;
+	border-radius: 10px;
 }
