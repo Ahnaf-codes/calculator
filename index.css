@@ -50,22 +50,36 @@ h1 {
 	aspect-ratio: 2 / 3;
 	padding: 15px;
 	border: black 3px solid;
-	border-radius: 10px;
+	border-radius: 25px;
 }
 
 #display {
 	justify-content: flex-end;
 	background-color: #dddddd;
 	border: black 3px solid;
-	border-radius: 10px;
+	border-radius: 25px;
 	margin-bottom: 15px;
+	padding: 10px;
 	font-size: 5rem;
 }
 
 #numbers {
 	grid-template-columns: repeat(4, 1fr);
 	gap: 10px;
-	border-radius: 10px;
+	border-radius: 25px;
+}
+
+.btn {
+	aspect-ratio: 1;
+	border: black 3px solid;
+	border-radius: 100%;
+	font-size: 4rem;
+}
+
+.equal {
+	grid-column: span 2;
+	border-radius: 60px;
+	aspect-ratio: unset;
 }
 
 @media only screen and (max-width: 550px) {
