@@ -75,12 +75,31 @@ h1 {
 	border: black 3px solid;
 	border-radius: 100%;
 	font-size: 4rem;
+	transition: background-color linear 0.25s;
 }
 
 .equal {
 	grid-column: span 2;
 	border-radius: 60px;
 	aspect-ratio: unset;
+}
+
+.number:hover,
+.decimal:hover {
+	background-color: #fffc36;
+}
+
+.operator:hover {
+	background-color: #ffc400;
+}
+
+.delete:hover,
+.clear:hover {
+	background-color: #ff4e4e;
+}
+
+.equal:hover {
+	background-color: #4eff4e;
 }
 
 @media only screen and (max-width: 550px) {
