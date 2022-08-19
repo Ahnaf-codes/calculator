@@ -67,3 +67,9 @@ h1 {
 	gap: 10px;
 	border-radius: 10px;
 }
+
+@media only screen and (max-width: 550px) {
+	#calculator {
+		width: 300px;
+	}
+}
