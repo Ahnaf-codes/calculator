@@ -2,13 +2,14 @@
 
 let displayText = document.getElementById("display-text");
 const numBtn = document.querySelectorAll(".number");
+const opBtn = document.querySelectorAll(".operator");
 const del = document.getElementById("delete");
 const clear = document.getElementById("clear");
-const add = document.getElementById("plus");
-const subtract = document.getElementById("minus");
-const multiply = document.getElementById("multiply");
-const divide = document.getElementById("divide");
-const power = document.getElementById("power");
+// const add = document.getElementById("add");
+// const subtract = document.getElementById("subtract");
+// const multiply = document.getElementById("multiply");
+// const divide = document.getElementById("divide");
+// const power = document.getElementById("power");
 let firstVarArr = [];
 let secondVarArr = [];
 let currentArr = firstVarArr;
@@ -30,6 +31,17 @@ numBtn.forEach(num => {
     });
 });
 
+opBtn.forEach(op => {
+    op.addEventListener("click", () => {
+        currentOp = op.id;
+        displayText.innerHTML = "";
+        currentArr = secondVarArr;
+        if (secondVarArr.length > 0) {
+            operate;
+        }
+    });
+});
+
 del.addEventListener("click", () => {
     if (currentArr === firstVarArr) {
         firstVarArr.pop();
@@ -43,26 +55,22 @@ del.addEventListener("click", () => {
         secondVarArr.pop();
         if (secondVarArr.length > 0) {
             displayText.innerHTML = secondVarArr.join("");
+            currentArr = secondVarArr;
         } else {
-            displayText.innerHTML = "";
+            displayText.innerHTML = firstVarArr.join("");
             currentOp = "";
             currentArr = firstVarArr;
         }
-        currentArr = secondVarArr;
     }
 
 });
 
 clear.addEventListener("click", () => {
-    if (currentArr === firstVarArr) {
-        firstVarArr = [];
-        displayText.innerHTML = "";
-        currentArr = firstVarArr;
-    } else {
-        secondVarArr = [];
-        displayText.innerHTML = "";
-        currentArr = firstVarArr;
-    }
+    firstVarArr = [];
+    secondVarArr = [];
+    currentArr = firstVarArr;
+    currentOp = "";
+    displayText.innerHTML = "";
 });
 
 function operate(a, b) {
