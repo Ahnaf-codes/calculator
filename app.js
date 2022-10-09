@@ -37,7 +37,7 @@ opBtn.forEach(op => {
         displayText.innerHTML = "";
         currentArr = secondVarArr;
         if (secondVarArr.length > 0) {
-            operate;
+            operate(Number(firstVarArr.join("")), Number(secondVarArr.join("")));
         }
     });
 });
@@ -91,4 +91,5 @@ function operate(a, b) {
             answer = a ** b;
             break;
     }
+    displayText.innerHTML = answer;
 }
