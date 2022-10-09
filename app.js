@@ -54,11 +54,11 @@ opBtn.forEach(op => {
     op.addEventListener("click", () => {
         if (firstVarArr.length > 0 && currentOp === "") {
             currentOp = op.id;
-            displayText.innerHTML = "";
-            currentArr = secondVarArr;
-            if (secondVarArr.length > 0) {
-                operate(Number(firstVarArr.join("")), Number(secondVarArr.join("")));
-            }
+        }
+        displayText.innerHTML = "";
+        currentArr = secondVarArr;
+        if (secondVarArr.length > 0) {
+            operate(Number(firstVarArr.join("")), Number(secondVarArr.join("")));
         }
     });
 });
