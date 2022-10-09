@@ -1,6 +1,7 @@
 "use strict";
 
 let displayText = document.getElementById("display-text");
+const limitText = document.getElementById("limit-text");
 const numBtn = document.querySelectorAll(".number");
 const opBtn = document.querySelectorAll(".operator");
 const del = document.getElementById("delete");
@@ -17,14 +18,19 @@ let answer = "";
 
 numBtn.forEach(num => {
     num.addEventListener("click", () => {
-        if (currentArr === firstVarArr) {
-            firstVarArr.push(num.innerHTML);
-            displayText.innerHTML = firstVarArr.join("");
-            currentArr = firstVarArr;
-        } else {
-            secondVarArr.push(num.innerHTML);
-            displayText.innerHTML = secondVarArr.join("");
-            currentArr = secondVarArr;
+        if (currentArr.length <= 14) {
+            if (currentArr === firstVarArr) {
+                firstVarArr.push(num.innerHTML);
+                displayText.innerHTML = firstVarArr.join("");
+                currentArr = firstVarArr;
+            } else {
+                secondVarArr.push(num.innerHTML);
+                displayText.innerHTML = secondVarArr.join("");
+                currentArr = secondVarArr;
+            }
+        }
+        else {
+            limitText.style.visibility = "visible";
         }
     });
 });

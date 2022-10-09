@@ -39,9 +39,10 @@ h1 {
 }
 
 #container {
-	min-height: 100vh;
+	margin-top: 2rem;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 }
 
 #calculator {
@@ -54,7 +55,8 @@ h1 {
 }
 
 #display {
-	justify-content: flex-end;
+	justify-content: end;
+	align-items: center;
 	background-color: #eeeeee;
 	border: black 3px solid;
 	border-radius: 25px;
@@ -108,9 +110,17 @@ h1 {
 	background-color: #4eff4e;
 }
 
+#limit-text {
+	font-size: 3rem;
+	text-align: center;
+	font-weight: 600;
+	color: #ff0000;
+	visibility: hidden;
+}
+
 @media only screen and (max-width: 550px) {
 	:root {
-		font-size: 55%;
+		font-size: 50%;
 	}
 
 	#calculator {
