@@ -9,6 +9,7 @@ const clear = document.getElementById("clear");
 const equal = document.getElementById("equal");
 const add = document.getElementById("add");
 const subtract = document.getElementById("subtract");
+const decimal = document.getElementById("decimal");
 let firstVarArr = [];
 let secondVarArr = [];
 let currentArr = firstVarArr;
@@ -33,6 +34,20 @@ numBtn.forEach(num => {
             limitText.style.visibility = "visible";
         }
     });
+});
+
+decimal.addEventListener("click", () => {
+    if (!currentArr.includes(".")) {
+        if (currentArr === firstVarArr) {
+            firstVarArr.push(decimal.innerHTML);
+            displayText.innerHTML = firstVarArr.join("");
+            currentArr = firstVarArr;
+        } else {
+            secondVarArr.push(decimal.innerHTML);
+            displayText.innerHTML = secondVarArr.join("");
+            currentArr = secondVarArr;
+        }
+    }
 });
 
 opBtn.forEach(op => {
@@ -83,6 +98,8 @@ clear.addEventListener("click", () => {
 equal.addEventListener("click", () => {
     if (secondVarArr.length > 0) {
         operate(Number(firstVarArr.join("")), Number(secondVarArr.join("")));
+    } else {
+        displayText.innerHTML = firstVarArr.join("");
     }
 });
 
@@ -108,7 +125,7 @@ function operate(a, b) {
             answer = a ** b;
             break;
     }
-    displayText.innerHTML = answer;
+    displayText.innerHTML = Math.round(answer * 10000) / 10000;
     firstVarArr = String(answer).split("");
     secondVarArr = [];
     currentOp = "";
