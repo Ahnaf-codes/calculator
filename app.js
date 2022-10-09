@@ -11,21 +11,47 @@ let currentArr = firstVarArr;
 
 numBtn.forEach(num => {
     num.addEventListener("click", () => {
-        firstVarArr.push(num.innerHTML);
-        displayText.innerHTML = firstVarArr.join("");
+        if (currentArr === firstVarArr) {
+            firstVarArr.push(num.innerHTML);
+            displayText.innerHTML = firstVarArr.join("");
+            currentArr = firstVarArr;
+        } else {
+            secondVarArr.push(num.innerHTML);
+            displayText.innerHTML = secondVarArr.join("");
+            currentArr = secondVarArr;
+        }
     });
 });
 
 del.addEventListener("click", () => {
-    firstVarArr.pop();
-    if (firstVarArr.length > 0) {
-        displayText.innerHTML = firstVarArr.join("");
+    if (currentArr === firstVarArr) {
+        firstVarArr.pop();
+        if (firstVarArr.length > 0) {
+            displayText.innerHTML = firstVarArr.join("");
+        } else {
+            displayText.innerHTML = "";
+        }
+        currentArr = firstVarArr;
     } else {
-        displayText.innerHTML = "";
+        secondVarArr.pop();
+        if (secondVarArr.length > 0) {
+            displayText.innerHTML = secondVarArr.join("");
+        } else {
+            displayText.innerHTML = "";
+        }
+        currentArr = secondVarArr;
     }
+
 });
 
 clear.addEventListener("click", () => {
-    firstVarArr = [];
-    displayText.innerHTML = "";
+    if (currentArr === firstVarArr) {
+        firstVarArr = [];
+        displayText.innerHTML = "";
+        currentArr = firstVarArr;
+    } else {
+        secondVarArr = [];
+        displayText.innerHTML = "";
+        currentArr = secondVarArr;
+    }
 });
