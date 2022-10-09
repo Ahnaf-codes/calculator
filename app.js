@@ -5,11 +5,9 @@ const numBtn = document.querySelectorAll(".number");
 const opBtn = document.querySelectorAll(".operator");
 const del = document.getElementById("delete");
 const clear = document.getElementById("clear");
-// const add = document.getElementById("add");
-// const subtract = document.getElementById("subtract");
-// const multiply = document.getElementById("multiply");
-// const divide = document.getElementById("divide");
-// const power = document.getElementById("power");
+const equal = document.getElementById("equal");
+const add = document.getElementById("add");
+const subtract = document.getElementById("subtract");
 let firstVarArr = [];
 let secondVarArr = [];
 let currentArr = firstVarArr;
@@ -33,11 +31,13 @@ numBtn.forEach(num => {
 
 opBtn.forEach(op => {
     op.addEventListener("click", () => {
-        currentOp = op.id;
-        displayText.innerHTML = "";
-        currentArr = secondVarArr;
-        if (secondVarArr.length > 0) {
-            operate(Number(firstVarArr.join("")), Number(secondVarArr.join("")));
+        if (firstVarArr.length > 0 && currentOp === "") {
+            currentOp = op.id;
+            displayText.innerHTML = "";
+            currentArr = secondVarArr;
+            if (secondVarArr.length > 0) {
+                operate(Number(firstVarArr.join("")), Number(secondVarArr.join("")));
+            }
         }
     });
 });
@@ -71,6 +71,13 @@ clear.addEventListener("click", () => {
     currentArr = firstVarArr;
     currentOp = "";
     displayText.innerHTML = "";
+    answer = "";
+});
+
+equal.addEventListener("click", () => {
+    if (secondVarArr.length > 0) {
+        operate(Number(firstVarArr.join("")), Number(secondVarArr.join("")));
+    }
 });
 
 function operate(a, b) {
@@ -85,11 +92,18 @@ function operate(a, b) {
             answer = a * b;
             break;
         case "divide":
-            answer = a / b;
+            if (b === 0) {
+                answer = "OMAE WA MOU SHINDEIRU!";
+            } else {
+                answer = a / b;
+            }
             break;
         case "power":
             answer = a ** b;
             break;
     }
     displayText.innerHTML = answer;
+    firstVarArr = String(answer).split("");
+    secondVarArr = [];
+    currentOp = "";
 }
