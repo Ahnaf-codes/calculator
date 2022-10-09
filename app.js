@@ -45,6 +45,8 @@ del.addEventListener("click", () => {
             displayText.innerHTML = secondVarArr.join("");
         } else {
             displayText.innerHTML = "";
+            currentOp = "";
+            currentArr = firstVarArr;
         }
         currentArr = secondVarArr;
     }
@@ -59,7 +61,7 @@ clear.addEventListener("click", () => {
     } else {
         secondVarArr = [];
         displayText.innerHTML = "";
-        currentArr = secondVarArr;
+        currentArr = firstVarArr;
     }
 });
 
