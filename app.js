@@ -8,9 +8,12 @@ const add = document.getElementById("plus");
 const subtract = document.getElementById("minus");
 const multiply = document.getElementById("multiply");
 const divide = document.getElementById("divide");
+const power = document.getElementById("power");
 let firstVarArr = [];
 let secondVarArr = [];
 let currentArr = firstVarArr;
+let currentOp = "";
+let answer = "";
 
 
 numBtn.forEach(num => {
@@ -59,3 +62,23 @@ clear.addEventListener("click", () => {
         currentArr = secondVarArr;
     }
 });
+
+function operate(a, b) {
+    switch (currentOp) {
+        case "add":
+            answer = a + b;
+            break;
+        case "subtract":
+            answer = a - b;
+            break;
+        case "multiply":
+            answer = a * b;
+            break;
+        case "divide":
+            answer = a / b;
+            break;
+        case "power":
+            answer = a ** b;
+            break;
+    }
+}
