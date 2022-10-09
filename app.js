@@ -87,12 +87,7 @@ del.addEventListener("click", () => {
 });
 
 clear.addEventListener("click", () => {
-    firstVarArr = [];
-    secondVarArr = [];
-    currentArr = firstVarArr;
-    currentOp = "";
-    displayText.innerHTML = "";
-    answer = "";
+    location.reload();
 });
 
 equal.addEventListener("click", () => {
