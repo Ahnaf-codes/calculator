@@ -110,8 +110,8 @@ function operate(a, b) {
             answer = a * b;
             break;
         case "divide":
-            if (b === 0) {
-                answer = "OMAE WA MOU SHINDEIRU!";
+            if (b == 0) {
+                answer = "ERROR 404";
             } else {
                 answer = a / b;
             }
@@ -120,8 +120,14 @@ function operate(a, b) {
             answer = a ** b;
             break;
     }
-    displayText.innerHTML = Math.round(answer * 10000) / 10000;
-    firstVarArr = String(answer).split("");
+    if (typeof answer === "string") {
+        displayText.style.color = "#ff0000";
+        displayText.innerHTML = answer;
+    } else {
+        displayText.innerHTML = Math.round(answer * 10000) / 10000;
+        firstVarArr = String(answer).split("");
+    }
+
     secondVarArr = [];
     currentOp = "";
 }
